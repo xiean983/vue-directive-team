@@ -1,148 +1,50 @@
-# v-hotkey
+# vue-directive-team
 
-[![bundlephobia minified size](https://badgen.net/bundlephobia/min/v-hotkey)](https://bundlephobia.com/result?p=v-hotkey)
-[![npm package version](https://badgen.net/npm/v/v-hotkey)](https://npm.im/v-hotkey)
-[![github license](https://badgen.net/github/license/dafrok/v-hotkey)](https://github.com/dafrok/v-hotkey/blob/master/LICENSE)
-[![js standard style](https://badgen.net/badge/code%20style/standard/pink)](https://standardjs.com)
-
-Vue 2.x directive for binding hotkeys to components.
+A collection of directives for vue2.x
 
 ## Play with me
 
-[https://dafrok.github.io/v-hotkey](https://dafrok.github.io/v-hotkey)
+https://gitee.com/xiean983/vue-directive-team.git
 
 ## Install
 
 ```bash
-$ npm i v-hotkey
+$ npm i vue-directive-team
 # or
-$ yarn add v-hotkey
+$ yarn add vue-directive-team
 ```
 
 ## Usage
 
 ```javascript
 import Vue from 'vue'
-import VueHotkey from 'v-hotkey'
+import copy from 'vue-directive-team'
 
-Vue.use(VueHotkey)
+Vue.use(copy)
 ```
 
 ```vue
 <template>
-  <span v-hotkey="keymap" v-show="show"> 
-    Press `ctrl + esc` to toggle me! Hold `enter` to hide me!
-  </span>
-</template>
-
-<script>
-export default {
-  data () {
-    return {
-      show: true
-    }
-  },
-  methods: {
-    toggle () {
-      this.show = !this.show
-    },
-    show () {
-      this.show = true
-    },
-    hide () {
-      this.show = false
-    }
-  },
-  computed: {
-    keymap () {
-      return {
-        // 'esc+ctrl' is OK.
-        'ctrl+esc': this.toggle,
-        'enter': {
-          keydown: this.hide,
-          keyup: this.show
-        }
-      }
-    }
-  }
-}
-</script>
-```
-
-## Event Handler
-
-- keydown (as default) 
-- keyup
-
-## Key Combination
-
-Use one or more of following keys to fire your hotkeys.
-
-- ctrl
-- alt
-- shift
-- command (MacOS)
-- windows (Windows)
-
-## Modifiers
-
-### prevent
-
-Add the prevent modifier to the directive to prevent default browser behavior.
-
-```vue
-<template>
-  <span v-hotkey.prevent="keymap" v-show="show">
-    Press `ctrl + esc` to toggle me! Hold `enter` to hide me!
-  </span>
+	复制粘贴指令 v-copy
+        <button v-copy="copyText">复制</button>
+        copyText:'复制内容'
+    按钮点击防抖指令 v-debounce
+        <button v-debounce="debounceClick">防抖</button>
+       methods: {
+			 debounceClick(){}
+	   }
+    图片懒加载 v-LazyLoad
+        <img v-LazyLoad="xxx.jpg" />
+    权限校验指令 v-premission
+         <!-- 显示 -->
+        <button v-permission="'1'">权限按钮1</button>
+        <!-- 不显示 -->
+        <button v-permission="'0'">权限按钮2</button></div>
+    实现页面水印 v-waterMarker
+        <div v-waterMarker="{text:'lzg版权所有',textColor:'rgba(180, 180, 180, 0.4)'}"></div>
+    拖拽指令 v-draggable
+        <div class="el-dialog" v-draggable></div>
 </template>
 ```
 
-### stop
-
-Add the stop modifier to the directive to stop event propagation.
-
-```vue
-<template>
-  <div v-hotkey.stop="keymap">
-    <span> Enter characters in editable areas doesn't trigger any hotkeys. </span>
-    <input>
-  </div>
-</template>
-```
-
-## Key Code Alias
-
-The default key code map is based on US standard keyboard.
-This ability to provide their own key code alias for developers who using keyboards with different layouts. The alias name must be a **single character**.
-
-### Definition
-
-```javascript
-import Vue from 'vue'
-import VueHotkey from 'v-hotkey'
-
-Vue.use(VueHotkey, {
-  '①': 49 // the key code of character '1'
-})
-```
-
-### Template
-
-```vue
-<span v-hotkey="keymap"></span>
-<script>
-export default {
-  foo () {
-    console.log('Hooray!')
-  },
-  computed: {
-    keymap () {
-      return {
-        '①': foo
-      }
-    }
-  }
-}
-</script>
-```
+### 
