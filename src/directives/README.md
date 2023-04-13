@@ -8,23 +8,3 @@
     componentUpdated: 被绑定元素所在模板完成一次更新周期时调用。
 
     unbind: 只调用一次， 指令与元素解绑时调用。
-
-module文件夹指令
-
-    复制粘贴指令 v-copy
-        <button v-copy="copyText">复制</button>
-        copyText:'复制内容'
-    按钮点击防抖指令 v-debounce
-        <button v-debounce="debounceClick">防抖</button>
-        debounceClick(){}
-    图片懒加载 v-LazyLoad
-        <img v-LazyLoad="xxx.jpg" />
-    权限校验指令 v-premission
-         <!-- 显示 -->
-        <button v-permission="'1'">权限按钮1</button>
-        <!-- 不显示 -->
-        <button v-permission="'10'">权限按钮2</button></div>
-    实现页面水印 v-waterMarker
-        <div v-waterMarker="{text:'lzg版权所有',textColor:'rgba(180, 180, 180, 0.4)'}"></div>
-    拖拽指令 v-draggable
-        <div class="el-dialog" v-draggable></div>
