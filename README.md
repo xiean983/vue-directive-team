@@ -35,6 +35,24 @@ Vue.use(directive)
     </script>
 ```
 
+**v-throttling**
+
+```vue
+    <button v-throttling="{ fn: addNum, delay: 300 }">{{ num }}</button>
+    <script>
+        data(){
+            return{
+                num: 1
+            }
+        },
+        methods: {
+            addNum() {
+                this.num++
+            }
+        }
+    </script>
+```
+
 **v-LazyLoad**
 
 ```vue
@@ -70,9 +88,27 @@ Vue.use(directive)
     <script>
         data(){
             return{
-                el: 'echart1', // 需要展示数据的dom类名
-                value: false,  // 是否有数据的状态
-                emimgpty: require('../assets/empty.png'), // 无数据的图片
+                value: {
+                    el: 'echart1', // 需要展示数据的父节点类名
+                    list: [],  // 需要展示的数据
+                    img: require('../assets/empty.png'), // 无数据的图片
+                }
+            }
+        }
+    </script>
+```
+
+**v-highlight**
+```vue
+    <div class="highlight" v-highlight="value"></div>
+    <script>
+        data(){
+            return{
+                value: {
+                    value: '这是一本书籍',
+                    keyword: '书籍',    // 高亮关键字,多个用|隔开,文章|书籍
+                    color: 'red'        // 高亮字体颜色
+                }
             }
         }
     </script>
